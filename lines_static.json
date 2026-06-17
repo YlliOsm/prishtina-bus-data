@@ -1,0 +1,396 @@
+{
+  "poll_time": "2026-06-15T11:07:41.768246+02:00",
+  "lines": [
+    {
+      "from": {
+        "lat": 42.65474406792474,
+        "lng": 21.177385703722248,
+        "radius": 150
+      },
+      "to": {
+        "lat": 42.6347996192634,
+        "lng": 21.082160228782918,
+        "radius": 150
+      },
+      "_id": "693008c4d4ff7e7e075a03b3",
+      "name": "Linja 1 (Bregu i Diellit - Fushe Kosove)",
+      "__v": 0,
+      "plannedJourneysWeekdays": 69,
+      "plannedJourneysWeekend": 55
+    },
+    {
+      "from": {
+        "lat": 42.6347996192634,
+        "lng": 21.082160228782918,
+        "radius": 150
+      },
+      "to": {
+        "lat": 42.65474406792474,
+        "lng": 21.177385703722248,
+        "radius": 150
+      },
+      "_id": "693008747582fb0be71caeca",
+      "name": "Linja 1 (Fushe Kosove - Bregu i Diellit)",
+      "__v": 0,
+      "plannedJourneysWeekdays": 69,
+      "plannedJourneysWeekend": 55
+    },
+    {
+      "from": {
+        "lat": 42.62597629184601,
+        "lng": 21.191754657624095,
+        "radius": 150
+      },
+      "to": {
+        "lat": 42.625711992503774,
+        "lng": 21.192048514496896,
+        "radius": 150
+      },
+      "plannedJourneysWeekdays": 0,
+      "plannedJourneysWeekend": 0,
+      "_id": "695fb32096d1bedf97ed2f5a",
+      "name": "Linja 10 (Hajvali - Qender - Hajvali)",
+      "__v": 0
+    },
+    {
+      "from": {
+        "lat": 42.56510356456303,
+        "lng": 21.132945713638172,
+        "radius": 100
+      },
+      "to": {
+        "lat": 42.5652137005881,
+        "lng": 21.13325135925289,
+        "radius": 100
+      },
+      "plannedJourneysWeekdays": 0,
+      "plannedJourneysWeekend": 0,
+      "_id": "69e8a1078c05788cf5f077f2",
+      "name": "Linja 10C (Prishtina Mall - Qender - Prishtina Mall)",
+      "__v": 0
+    },
+    {
+      "from": {
+        "lat": 42.57422998401718,
+        "lng": 21.028929571950354,
+        "radius": 150
+      },
+      "to": {
+        "lat": 42.650803862236735,
+        "lng": 21.146812031155346,
+        "radius": 150
+      },
+      "_id": "695faf94995840357e0f6905",
+      "name": "Linja 1A (Airoport - Stacioni i autobuseve)",
+      "__v": 0,
+      "plannedJourneysWeekdays": 9,
+      "plannedJourneysWeekend": 9
+    },
+    {
+      "from": {
+        "lat": 42.650803862236735,
+        "lng": 21.146812031155346,
+        "radius": 150
+      },
+      "to": {
+        "lat": 42.57422998401718,
+        "lng": 21.028929571950354,
+        "radius": 150
+      },
+      "_id": "695faf3513684026384e574d",
+      "name": "Linja 1A (Stacioni i autobuseve - Airoport)",
+      "__v": 0,
+      "plannedJourneysWeekdays": 9,
+      "plannedJourneysWeekend": 9
+    },
+    {
+      "from": {
+        "lat": 42.72131012274975,
+        "lng": 21.135943830013275,
+        "radius": 150
+      },
+      "to": {
+        "lat": 42.64668908648499,
+        "lng": 21.184652745723724,
+        "radius": 150
+      },
+      "_id": "6932d9f27e1cd1d2cf4a74a5",
+      "name": "Linja 3 (Bardhosh - Rrethi Matit)",
+      "__v": 0,
+      "plannedJourneysWeekdays": 95,
+      "plannedJourneysWeekend": 94
+    },
+    {
+      "from": {
+        "lat": 42.64668908648499,
+        "lng": 21.184652745723724,
+        "radius": 150
+      },
+      "to": {
+        "lat": 42.721266771341135,
+        "lng": 21.13617986440659,
+        "radius": 150
+      },
+      "_id": "6932da502870815bfef809b8",
+      "name": "Linja 3 (Rrethi Matit - Bardhosh)",
+      "__v": 0,
+      "plannedJourneysWeekdays": 95,
+      "plannedJourneysWeekend": 94
+    },
+    {
+      "from": {
+        "lat": 42.69167562442608,
+        "lng": 21.165744321933875,
+        "radius": 150
+      },
+      "to": {
+        "lat": 42.6466281446246,
+        "lng": 21.21904203732105,
+        "radius": 150
+      },
+      "plannedJourneysWeekdays": 0,
+      "plannedJourneysWeekend": 0,
+      "_id": "695facc45ee1c2bc563d5175",
+      "name": "Linja 3A (Kodra e Trimave - Zllatar)",
+      "__v": 0
+    },
+    {
+      "from": {
+        "lat": 42.6466281446246,
+        "lng": 21.21904203732105,
+        "radius": 150
+      },
+      "to": {
+        "lat": 42.69167562442608,
+        "lng": 21.165744321933875,
+        "radius": 150
+      },
+      "plannedJourneysWeekdays": 0,
+      "plannedJourneysWeekend": 0,
+      "_id": "695fad59a076a6af6dd96a66",
+      "name": "Linja 3A (Zllatar - Kodra e Trimave)",
+      "__v": 0
+    },
+    {
+      "from": {
+        "lat": 42.64668908648499,
+        "lng": 21.184652745723724,
+        "radius": 150
+      },
+      "to": {
+        "lat": 42.6991457211772,
+        "lng": 21.163608133792877,
+        "radius": 150
+      },
+      "_id": "6932dc6f12b1bf261ced01a4",
+      "name": "Linja 3C (Rrethi Matit - Sinidoll)",
+      "__v": 0,
+      "plannedJourneysWeekdays": 60,
+      "plannedJourneysWeekend": 24
+    },
+    {
+      "from": {
+        "lat": 42.6991457211772,
+        "lng": 21.163608133792877,
+        "radius": 150
+      },
+      "to": {
+        "lat": 42.64668908648499,
+        "lng": 21.184652745723724,
+        "radius": 150
+      },
+      "_id": "6932dd1cbfcc76294ed0041f",
+      "name": "Linja 3C (Sinidoll - Rrethi Matit)",
+      "__v": 0,
+      "plannedJourneysWeekdays": 60,
+      "plannedJourneysWeekend": 24
+    },
+    {
+      "from": {
+        "lat": 42.64516645287517,
+        "lng": 21.19309582896273,
+        "radius": 150
+      },
+      "to": {
+        "lat": 42.67326667151777,
+        "lng": 21.198268605129563,
+        "radius": 150
+      },
+      "_id": "69300740b7ca5d15d4722f9c",
+      "name": "Linja 4 (Mat - Parku i Germise)",
+      "__v": 0,
+      "plannedJourneysWeekdays": 129,
+      "plannedJourneysWeekend": 93
+    },
+    {
+      "from": {
+        "lat": 42.67326667151777,
+        "lng": 21.198268605129563,
+        "radius": 150
+      },
+      "to": {
+        "lat": 42.64516645287517,
+        "lng": 21.19309582896273,
+        "radius": 150
+      },
+      "_id": "693007de5e2d6fdf1bbae7de",
+      "name": "Linja 4 (Parku i Germise - Mat)",
+      "__v": 0,
+      "plannedJourneysWeekdays": 130,
+      "plannedJourneysWeekend": 94
+    },
+    {
+      "from": {
+        "lat": 42.66337540928019,
+        "lng": 21.138135586228422,
+        "radius": 150
+      },
+      "to": {
+        "lat": 42.64061024047768,
+        "lng": 21.163618928948292,
+        "radius": 150
+      },
+      "plannedJourneysWeekdays": 0,
+      "plannedJourneysWeekend": 0,
+      "_id": "69e88a11368e0b0a81eb3da1",
+      "name": "Linja 6 (Arb\u00ebri - Lagja e Spitalit)",
+      "__v": 0
+    },
+    {
+      "from": {
+        "lat": 42.64061024047768,
+        "lng": 21.163618928948292,
+        "radius": 150
+      },
+      "to": {
+        "lat": 42.66337540928019,
+        "lng": 21.138135586228422,
+        "radius": 150
+      },
+      "plannedJourneysWeekdays": 0,
+      "plannedJourneysWeekend": 0,
+      "_id": "69e88985368e0b0a81eb3d4d",
+      "name": "Linja 6 (Lagja e Spitalit - Arb\u00ebri)",
+      "__v": 0
+    },
+    {
+      "from": {
+        "lat": 42.67082241994753,
+        "lng": 21.122476558754354,
+        "radius": 150
+      },
+      "to": {
+        "lat": 42.64575827137133,
+        "lng": 21.128404578756406,
+        "radius": 150
+      },
+      "plannedJourneysWeekdays": 0,
+      "plannedJourneysWeekend": 0,
+      "_id": "69e88f95368e0b0a81eb3f7f",
+      "name": "Linja 6A (Orlloviq - Zona Industriale)",
+      "__v": 0
+    },
+    {
+      "from": {
+        "lat": 42.64575827137133,
+        "lng": 21.128404578756406,
+        "radius": 150
+      },
+      "to": {
+        "lat": 42.67082241994753,
+        "lng": 21.122476558754354,
+        "radius": 150
+      },
+      "plannedJourneysWeekdays": 0,
+      "plannedJourneysWeekend": 0,
+      "_id": "69e88c9e368e0b0a81eb3e88",
+      "name": "Linja 6A (Zona Industriale - Orlloviq)",
+      "__v": 0
+    },
+    {
+      "from": {
+        "lat": 42.64354705509729,
+        "lng": 21.143502466631215,
+        "radius": 150
+      },
+      "to": {
+        "lat": 42.68489525270053,
+        "lng": 21.19300334678941,
+        "radius": 150
+      },
+      "plannedJourneysWeekdays": 0,
+      "plannedJourneysWeekend": 0,
+      "_id": "69e8902a368e0b0a81eb3fb2",
+      "name": "Linja 7 (Kalabri - Kolovice)",
+      "__v": 0
+    },
+    {
+      "from": {
+        "lat": 42.68489525270053,
+        "lng": 21.19300334678941,
+        "radius": 150
+      },
+      "to": {
+        "lat": 42.64354705509729,
+        "lng": 21.143502466631215,
+        "radius": 150
+      },
+      "plannedJourneysWeekdays": 0,
+      "plannedJourneysWeekend": 0,
+      "_id": "69e892b457bbcefe166fc7d1",
+      "name": "Linja 7 (Kolovice - Kalabri)",
+      "__v": 0
+    },
+    {
+      "from": {
+        "lat": 42.70347368011333,
+        "lng": 21.223963130515124,
+        "radius": 150
+      },
+      "to": {
+        "lat": 42.64651562657571,
+        "lng": 21.115094304563335,
+        "radius": 150
+      },
+      "plannedJourneysWeekdays": 0,
+      "plannedJourneysWeekend": 0,
+      "_id": "695fae685f01069cca91b3a7",
+      "name": "Linja 7B (Makoc - Zona Industriale)",
+      "__v": 0
+    },
+    {
+      "from": {
+        "lat": 42.64651562657571,
+        "lng": 21.115094304563335,
+        "radius": 150
+      },
+      "to": {
+        "lat": 42.70347368011333,
+        "lng": 21.223963130515124,
+        "radius": 150
+      },
+      "_id": "695fade811f4d08a1093dad8",
+      "name": "Linja 7B (Zona Industriale - Makoc)",
+      "__v": 0,
+      "plannedJourneysWeekdays": 15,
+      "plannedJourneysWeekend": 7
+    },
+    {
+      "from": {
+        "lat": 42.64133090520989,
+        "lng": 21.153464036354027,
+        "radius": 50
+      },
+      "to": {
+        "lat": 42.63745202247878,
+        "lng": 21.15149437293133,
+        "radius": 50
+      },
+      "_id": "69e89e968c05788cf5f07714",
+      "name": "Linja 7C (Kalabri - Qender - Kalabri)",
+      "__v": 0,
+      "plannedJourneysWeekdays": 82,
+      "plannedJourneysWeekend": 54
+    }
+  ]
+}
