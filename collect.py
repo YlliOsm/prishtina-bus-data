@@ -6,11 +6,16 @@ Each scan day gets its own folder (001, 002, ...), and each poll is stored
 directly inside that day folder as 001.json / 001.csv.
 """
 
+import os
 import json
 import csv
 import requests
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # Configuration
 API_URL = "https://arvento-buses.onrender.com/api"
@@ -18,7 +23,7 @@ LINES_URL = f"{API_URL}/lines"
 BUSES_URL = f"{API_URL}/buses"
 
 # Weather Configuration
-WEATHER_API_KEY = 'abfee9b26d4d4442b86125105262905'
+WEATHER_API_KEY = os.getenv('WEATHER_API_KEY')
 WEATHER_URL = "http://api.weatherapi.com/v1/current.json"
 WEATHER_CITY = "Prishtina"
 

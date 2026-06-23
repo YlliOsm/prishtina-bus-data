@@ -1,27 +1,8 @@
-# Data directories (comment out if you want to track data)
+.env
+state/
 snapshots/
 csv_snapshots/
 csv_active/
-
-# Counter files (auto-generated)
-.day_counter
-.poll_counter_*
-
-# Legacy raw folder (if exists)
-raw/
-
-# Python
+weather_snapshots/
+*.bak
 __pycache__/
-*.py[cod]
-*$py.class
-*.egg-info/
-.eggs/
-
-# OS
-.DS_Store
-Thumbs.db
-
-# IDE
-.idea/
-.vscode/
-*.swp
