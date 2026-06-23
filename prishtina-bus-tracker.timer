@@ -1,0 +1,12 @@
+[Unit]
+Description=Run Prishtina Bus Tracker every minute and on boot
+
+[Timer]
+OnBootSec=30s
+OnCalendar=*-*-* *:*:00
+AccuracySec=10s
+Persistent=true
+Unit=prishtina-bus-tracker.service
+
+[Install]
+WantedBy=timers.target

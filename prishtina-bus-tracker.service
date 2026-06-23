@@ -1,0 +1,11 @@
+[Unit]
+Description=Prishtina Bus Tracker collector
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=pc-agent
+Group=pc-agent
+WorkingDirectory=/home/pc-agent/prishtina-bus-data
+ExecStart=/home/pc-agent/prishtina-bus-data/run_tracker.sh

@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-Prishtina Bus and Weather Data Collector
-Polls the Arvento bus API and WeatherAPI for Prishtina and saves timestamped snapshots.
+Prishtina Bus Data Collector
+Polls the Arvento bus API and saves timestamped snapshots.
 Each scan day gets its own folder (001, 002, ...), and each poll is stored
 directly inside that day folder as 001.json / 001.csv.
 """
@@ -16,12 +16,6 @@ from pathlib import Path
 API_URL = "https://arvento-buses.onrender.com/api"
 LINES_URL = f"{API_URL}/lines"
 BUSES_URL = f"{API_URL}/buses"
-
-# Weather Configuration
-WEATHER_API_KEY = 'abfee9b26d4d4442b86125105262905'
-WEATHER_URL = "http://api.weatherapi.com/v1/current.json"
-WEATHER_CITY = "Prishtina"
-
 DATA_DIR = Path("/home/pc-agent/prishtina-bus-data")
 STATE_DIR = DATA_DIR / "state"
 STALE_THRESHOLD_MINUTES = 2
@@ -56,7 +50,7 @@ def get_poll_counter():
 
     return f"{count:03d}"
 
-def fetch_bus_data():
+def fetch_data():
     """Fetch bus and line data from the API."""
     buses_data = []
     lines_data = []
@@ -77,23 +71,16 @@ def fetch_bus_data():
     
     return buses_data, lines_data
 
-def fetch_weather_data():
-    """Fetch current weather for Prishtina."""
-    try:
-        params = {'key': WEATHER_API_KEY, 'q': WEATHER_CITY, 'aqi': 'no'}
-        resp = requests.get(WEATHER_URL, params=params, timeout=15)
-        resp.raise_for_status()
-        return resp.json()
-    except Exception as e:
-        print(f"Error fetching weather: {e}")
-        return None
-
 def process_bus_record(bus, poll_time, include_stale=False):
     """Process a bus record, converting UTC to local time. Optionally filter stale."""
     utc_time_str = bus.get('time', '')
     is_stale = False
     status = bus.get('derivedStatus', '')
     
+    # A bus is considered stale if:
+    # 1. Timestamp is older than threshold, OR
+    # 2. Status is 'offline' (not reporting at all), OR  
+    # 3. Status is 'longIdle' (stopped for a long time)
     if status in ['offline', 'longIdle']:
         is_stale = True
     
@@ -134,6 +121,7 @@ def process_bus_record(bus, poll_time, include_stale=False):
 
 def save_snapshot_json(buses, lines, poll_time, poll_num, day_folder):
     """Save raw JSON snapshot directly under the day folder."""
+    # Structure: snapshots/001/001.json (day_folder/poll_num)
     day_dir = DATA_DIR / "snapshots" / day_folder
     day_dir.mkdir(parents=True, exist_ok=True)
     
@@ -154,6 +142,7 @@ def save_snapshot_json(buses, lines, poll_time, poll_num, day_folder):
 
 def save_snapshot_csv(buses, poll_time, poll_num, day_folder, folder, include_stale=True):
     """Save CSV snapshot directly under the day folder."""
+    # Structure: csv_snapshots/001/001.csv (day_folder/poll_num)
     day_dir = folder / day_folder
     day_dir.mkdir(parents=True, exist_ok=True)
     
@@ -177,29 +166,6 @@ def save_snapshot_csv(buses, poll_time, poll_num, day_folder, folder, include_st
         writer.writerows(processed)
     
     return csv_file, len(processed)
-
-def save_weather_snapshot(weather_data, poll_time, poll_num, day_folder):
-    """Save weather data using the same sequential folder system."""
-    if not weather_data:
-        return None
-    
-    # Structure: weather_snapshots/001/001.json
-    weather_dir = DATA_DIR / "weather_snapshots" / day_folder
-    weather_dir.mkdir(parents=True, exist_ok=True)
-    
-    weather_file = weather_dir / f"{poll_num}.json"
-    
-    snapshot = {
-        'poll_timestamp': int(poll_time.timestamp()),
-        'poll_time': poll_time.strftime('%Y-%m-%d %H:%M:%S'),
-        'poll_number': poll_num,
-        'data': weather_data
-    }
-    
-    with open(weather_file, 'w') as f:
-        json.dump(snapshot, f, indent=2)
-    
-    return weather_file
 
 def save_lines_static(lines, poll_time):
     """Save lines data (once)."""
@@ -234,6 +200,7 @@ def save_lines_static(lines, poll_time):
             writer.writeheader()
             writer.writerows(processed)
 
+
 def get_day_folder(today_str):
     """Get or advance the sequential day folder name."""
     STATE_DIR.mkdir(parents=True, exist_ok=True)
@@ -261,7 +228,6 @@ def main():
     STATE_DIR.mkdir(parents=True, exist_ok=True)
     (DATA_DIR / "csv_snapshots").mkdir(parents=True, exist_ok=True)
     (DATA_DIR / "csv_active").mkdir(parents=True, exist_ok=True)
-    (DATA_DIR / "weather_snapshots").mkdir(parents=True, exist_ok=True)
     
     poll_time = get_local_time()
     today_str = poll_time.strftime('%Y%m%d')
@@ -269,42 +235,33 @@ def main():
 
     poll_num = get_poll_counter()  # Resets each day
     
-    print(f"[{poll_time.strftime('%Y-%m-%d %H:%M:%S')}] Polling APIs...")
+    print(f"[{poll_time.strftime('%Y-%m-%d %H:%M:%S')}] Polling API...")
     
-    # 1. Weather Collection
-    weather_data = fetch_weather_data()
-    if weather_data:
-        weather_file = save_weather_snapshot(weather_data, poll_time, poll_num, day_folder)
-        print(f"  Weather: weather_snapshots/{day_folder}/{weather_file.name}")
-    else:
-        print("  Weather: No data received!")
-
-    # 2. Bus Collection
-    buses, lines = fetch_bus_data()
+    buses, lines = fetch_data()
     
     if buses:
-        # Save raw JSON snapshot
+        # 1. Save raw JSON snapshot
         snap_file = save_snapshot_json(buses, lines, poll_time, poll_num, day_folder)
-        print(f"  Bus Snapshot: snapshots/{day_folder}/{snap_file.name}")
+        print(f"  Snapshot: snapshots/{day_folder}/{snap_file.name}")
         
-        # Save CSV snapshot (all buses)
+        # 2. Save CSV snapshot (all buses) - same poll number
         csv_file, _ = save_snapshot_csv(buses, poll_time, poll_num, day_folder,
                                         DATA_DIR / "csv_snapshots", include_stale=True)
-        print(f"  Bus CSV (all): csv_snapshots/{day_folder}/{csv_file.name}")
+        print(f"  CSV (all): csv_snapshots/{day_folder}/{csv_file.name}")
         
-        # Save CSV active
+        # 3. Save CSV active (only recently updated, <2 min) - same poll number
         csv_active, active_count = save_snapshot_csv(buses, poll_time, poll_num, day_folder,
                                                      DATA_DIR / "csv_active", include_stale=False)
-        print(f"  Bus CSV (active): csv_active/{day_folder}/{csv_active.name} ({active_count} buses)")
+        print(f"  CSV (active): csv_active/{day_folder}/{csv_active.name} ({active_count} buses)")
         
         # Save lines
         save_lines_static(lines, poll_time)
         
         # Status
         moving = sum(1 for b in buses if b.get('derivedStatus') == 'moving')
-        print(f"  Bus Status: {moving} moving, {len(buses)} total, {active_count} active")
+        print(f"  Status: {moving} moving, {len(buses)} total, {active_count} active")
     else:
-        print("  Bus Data: No data received!")
+        print("  No data received!")
 
 if __name__ == "__main__":
     main()
